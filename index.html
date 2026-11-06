@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Making a Difference in the World - Training</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+    :root {
+      --crop-top: 0px;
+      --crop-right: 25px;
+      --crop-bottom: 0px;
+      --crop-left: 35px;
+    }
+
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      color: #4b3621;
+      background: linear-gradient(to bottom, #f5f0e8 0%, #8a6e4e 100%);
+      line-height: 1.65;
+      min-height: 100vh;
+      padding: 0 15px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: rgba(245,240,232,0.95);
+      border-radius: 10px;
+      padding: 30px 40px 50px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    }
+    .image-container {
+  background: rgba(245,240,232,0.95);  /* no background */
+  padding: 0 !important;
+  margin: 0 auto !important;
+  box-shadow: none !important;          /* remove shadows */
+  border: none !important;
+}
+
+.image-container img {
+  display: block;
+  width: 100%;  /* or max-width */
+  height: auto;
+  border: none;
+  box-shadow: none !important;
+  background: rgba(245,240,232,0.95);
+  padding: 0 !important;
+  margin: 0 !important;
+  object-fit: cover;
+}
+
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .header-logos {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 20px;
+    }
+
+    .header-logos img {
+      height: 60px;
+      max-width: 150px;
+      object-fit: contain;
+      filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.12));
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .header-logos img:hover {
+      transform: scale(1.1);
+    }
+
+    h1 {
+      font-family: 'Merriweather', serif;
+      color: #9b3d1f;
+      font-size: 3.6rem;
+      margin: 0;
+      user-select: none;
+      line-height: 1.15;
+    }
+
+    .erasmus-text {
+      font-size: 1.1rem;
+      color: #846b47;
+      margin-top: 10px;
+      font-style: italic;
+      letter-spacing: 2px;
+      font-weight: 600;
+      user-select: none;
+    }
+        .heading-text {
+      font-size: 1.5rem;
+      color: #846b47;
+      margin-top: 10px;
+      font-style: bold;
+      letter-spacing: 2px;
+      font-weight: 1000;
+      user-select: none;
+    }
+
+    /* Container for interactive crop images */
+    .image-container {
+      width: 100%;
+      max-width: 900px;
+      height: 500px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      margin: 30px auto 60px;
+      position: relative;
+      background: rgba(245,240,232,0.95);
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      clip-path: inset(var(--crop-top) var(--crop-right) var(--crop-bottom) var(--crop-left));
+      transition: clip-path 0.3s ease;
+      display: block;
+      border-radius: 10px;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    figure figcaption {
+      margin-top: 10px;
+      font-style: italic;
+      color: #7a6650;
+      font-size: 1rem;
+      text-align: center;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      user-select: none;
+    }
+
+    /* Logos row */
+    .logos {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 40px;
+      padding: 0 10px;
+    }
+
+    .logos img {
+      height: 120px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
+      transition: transform 0.3s ease;
+      border-radius: 4px;
+      background: rgba(245,240,232,0.95);
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .logos img:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 4px 4px rgba(0,0,0,0.25));
+    }
+
+    /* Two column features */
+    .features {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .feature {
+      background:rgba(245,240,232,0.95);
+      border-radius: 10px;
+      padding: 30px 30px 20px;
+      box-shadow: inset 0 0 15px rgba(245,240,232,0.95);
+      flex: 1 1 420px;
+      max-width: 450px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .feature:hover {
+      box-shadow: 0 8px 20px rgba(103, 70, 21, 0.3);
+    }
+
+    .feature h2 {
+      font-family: 'Merriweather', serif;
+      color: #7b4f2e;
+      border-bottom: 3px solid rgba(245,240,232,0.95);
+      padding-bottom: 8px;
+      margin: 0 0 20px;
+      font-size: 2rem;
+    }
+
+    .feature ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      color: #4b3621;
+      font-size: 1.1rem;
+      line-height: 1.55;
+      flex-grow: 1;
+    }
+
+    .feature ul li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 14px;
+    }
+
+    .feature ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #b18d4a;
+      font-size: 1.5rem;
+      line-height: 1;
+      top: 3px;
+    }
+
+    .feature figure {
+      margin: 20px 0 0;
+      border: none;
+      box-shadow: none;
+      background: none;
+      text-align: center;
+    }
+
+    .feature figure img {
+      border-radius: 10px;
+      max-width: 100%;
+      height: auto;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .feature figure img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .feature figcaption {
+      font-style: italic;
+      color: #6f573a;
+      font-size: 1rem;
+      margin-top: 10px;
+      user-select:none;
+    }
+
+    .bottom-band {
+      max-width: 900px;
+      margin: 0 auto 40px auto;
+      font-style: italic;
+      color: #705a31;
+      text-align: center;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      border-top: 2px solid #d6c6a3;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    /* Controls panel for cropping */
+    .controls-container {
+      max-width: 900px;
+      margin: 0 auto 30px;
+      padding: 0 10px;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+      gap: 15px 30px;
+      font-weight: bold;
+      color:rgba(245,240,232,0.95);
+    }
+
+    label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    input[type="range"] {
+      width: 65%;
+      cursor: pointer;
+    }
+
+    /* Responsive */
+    @media (max-width: 760px) {
+      h1 {
+        font-size: 2.8rem;
+      }
+      .header-logos {
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+      .header-logos img {
+        height: 50px;
+        max-width: 100px;
+      }
+      .logos img {
+        height: 90px;
+      }
+      .features {
+        flex-direction: column;
+        margin-bottom: 30px;
+      }
+      .feature {
+        max-width: 100%;
+      }
+      .controls {
+        grid-template-columns: 1fr;
+      }
+    }
+    .facilitator-section {
+  background-color:rgba(245,240,232,0.95);
+  color: #3d2f1e;
+  max-width: 960px;
+  margin: 50px auto;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.facilitator-container {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.facilitator-portrait {
+  width: 180px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.facilitator-bio {
+  flex: 1;
+  min-width: 250px;
+}
+
+.facilitator-bio h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 2.2rem;
+  margin-top: 0;
+  color: #4a3721;
+  font-weight: 700;
+}
+
+.facilitator-bio p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-top: 10px;
+  color: #3d2f1e;
+}
+
+.facilitator-activity {
+  margin-top: 20px;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+  background: rgba(245,240,232,0.95);
+}
+
+.facilitator-activity img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.facilitator-activity figcaption {
+  padding: 15px 10px;
+  font-style: italic;
+  font-size: 1rem;
+  color: #5a4a33;
+}
+
+@media (max-width: 680px) {
+  .facilitator-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .facilitator-portrait {
+    width: 140px;
+  }
+
+  .facilitator-bio {
+    text-align: center;
+  }
+}
+.partners-section {
+  background-color: #7e6144; /* warm brown/tan background */
+  color: white;              /* all text white */
+  padding: 40px 20px;
+  max-width: 960px;
+  margin: 40px auto;
+  border-radius: 12px;
+  font-family: Arial, sans-serif;
+}
+
+.partners-section h2,
+.partners-section p {
+  color: white; /* ensure headings and paragraphs are white */
+}
+
+.partners-section a {
+  color: #f0e5d7;  /* light cream for links for contrast */
+}
+
+.partners-section a:hover,
+.partners-section a:focus {
+  color: #ddd;     /* lighter on hover */
+}
+
+
+.partners-logos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  background: transparent;
+}
+
+.partners-logos a img {
+  height: 150px;
+  width: auto;
+  background-color: #f7f5ee; /* washed white / pale cream */
+  border-radius: 12px;      /* rounded corners for cards */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* subtle soft shadow */
+  padding: 12px;             /* padding inside the card */
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  display: block;
+}
+
+
+.partners-logos a img:hover,
+.partners-logos a img:focus {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  outline: none;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .partners-logos {
+    gap: 20px;
+  }
+
+  .partners-logos a img {
+    height: 60px;
+  }
+}
+
+.accommodation-section {
+  background-color: #7e6144; /* warm brown/tan */
+  color: rgba(245,240,232,0.95);
+  padding: 40px 20px;
+  max-width: 960px;
+  margin: 40px auto;
+  border-radius: 12px;
+  font-family: Arial, sans-serif;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 25px;
+  letter-spacing: 6px;
+  user-select: none;
+}
+
+
+.accommodation-info {
+  font-size: 1.15rem;
+  max-width: 680px;
+  margin: 0 auto 35px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.hotel-link {
+  color: #e6d9be;
+  text-decoration: underline;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.accommodation-container {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.location-block {
+  flex: 1 1 300px;
+  max-width: 450px;
+  border-radius: 12px;
+  background: rgba(255 255 255 / 0.15);
+  padding: 15px 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  color: rgba(245,240,232,0.95);
+}
+
+.photo-container {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+.photo-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+}
+
+.location-info h3 {
+  font-size: 1.9rem;
+  font-weight: bold;
+  margin: 0 0 15px;
+  user-select: none;
+}
+
+.hotel-input {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 20px;
+  color: #7e6144;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: all;
+}
+
+.hotel-input:focus {
+  outline: 3px solid #c8b49b;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 250px;
+  border-radius: 12px;
+  border: none;
+  user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .accommodation-container {
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+  }
+
+  .location-block {
+    max-width: 100%;
+  }
+}
+
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 25px;
+  letter-spacing: 6px;
+  user-select: none;
+}
+
+.accommodation-info {
+  font-size: 1.15rem;
+  max-width: 680px;
+  margin: 0 auto 35px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.hotel-link {
+  color: #e6d9be;
+  text-decoration: underline;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.accommodation-container {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.photo-container {
+  flex: 1 1 300px;
+  max-width: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
+.photo-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  user-select: none;
+}
+
+.locations-container {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap; /* allows stacking on small screens */
+}
+
+.location-info {
+  flex: 1 1 400px; /* flexible width, min 400px */
+  max-width: 480px;
+}
+
+
+.hotel-input {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 25px;
+  color: #7e6144;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: all;
+}
+
+.hotel-input:focus {
+  outline: 3px solid #c8b49b;
+}
+
+.map-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.deadline-section {
+  background:rgba(245,240,232,0.95);
+  padding: 25px 30px;
+  max-width: 960px;
+  margin: 50px auto 40px auto;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.deadline-info {
+  max-width: 680px;
+}
+
+.deadline-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  color: #555;
+  user-select: none;
+}
+
+.deadline-date {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 5px 0 15px 0;
+  color: #222;
+}
+
+.highlight-date {
+  color: #d83038; 
+}
+
+.deadline-info p {
+  margin: 8px 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.apply-button {
+  background-color: #d83038;
+  color: #efe4d6; 
+  padding: 14px 28px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  border-radius: 6px;
+  text-decoration: none;
+  user-select: none;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  min-width: 160px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.apply-button:hover,
+.apply-button:focus {
+  background-color: #d05527;
+  outline: none;
+  box-shadow: 0 0 6px #d05527;
+}
+
+.page-footer {
+  background-color: #efe4d6; /* light beige */
+  display: flex;
+  justify-content: space-between;
+  max-width: 960px;
+  margin: 0 auto 30px auto;
+  padding: 25px 40px;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  color: #5a4b3c;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1 1 280px;
+  min-width: 280px;
+}
+
+.footer-logo {
+  width: 56px;
+  height: auto;
+  user-select: none;
+}
+
+.footer-text {
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 1.1;
+  user-select: none;
+}
+
+.footer-right {
+  flex: 1 1 220px;
+  min-width: 220px;
+  font-size: 1rem;
+}
+
+.footer-right h3 {
+  margin-top: 0;
+  font-weight: 700;
+  color: #7c6243;
+  letter-spacing: 1.1px;
+  user-select: none;
+}
+
+.footer-right p {
+  margin: 6px 0;
+  user-select: text;
+}
+
+.footer-right a {
+  color: #5a4b3c;
+  text-decoration: none;
+}
+
+.footer-right a:hover,
+.footer-right a:focus {
+  text-decoration: underline;
+  outline: none;
+}
+
+.footer-center {
+  flex: 1 1 100%;
+  text-align: center;
+  font-style: italic;
+  margin-top: 20px;
+  font-weight: 600;
+  color: #7c6243;
+  user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .deadline-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .apply-button {
+    min-width: 100%;
+    text-align: center;
+  }
+
+  .page-footer {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .footer-left, .footer-right, .footer-center {
+    flex: none;
+    min-width: auto;
+  }
+
+  .footer-left {
+    justify-content: center;
+  }
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 720px) {
+  .accommodation-container {
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+  }
+
+  .photo-container, .location-container {
+    max-width: 100%;
+  }
+
+  .hotel-input {
+    font-size: 1rem;
+  }
+}
+.travel-section {
+  background-color: #7e6144; /* warm brown/tan */
+  color: white;              /* white text */
+  border-radius: 12px;
+  padding: 40px 30px 30px;
+  max-width: 960px;
+  margin: 40px auto;
+  box-shadow: 0 10px 25px rgba(94, 65, 27, 0.3);
+  font-family: Arial, sans-serif;
+}
+
+.travel-title {
+  font-size: 3rem;
+  color:  #f0e5d7; 
+  font-weight: 700;
+  margin-bottom: 25px;
+  user-select: none;
+}
+
+.travel-info p, .travel-info ol, .travel-info ul {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #f0e5d7; /* pale cream */
+  max-width: 700px;
+}
+
+.travel-info h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color:  #f0e5d7; 
+  font-size: 1.8rem;
+  font-weight: 700;
+  user-select: none;
+}
+
+.travel-info a {
+  color: #f0e5d7;
+  text-decoration: underline;
+}
+
+.reimbursement-band {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 25px 35px;
+  margin-top: 40px;
+  border-radius: 12px;
+  color: #f0e5d7;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.reimbursement-band h3 {
+  font-size: 1.6rem;
+  color:  #f0e5d7; 
+  margin-bottom: 20px;
+  font-weight: 700;
+  user-select: none;
+}
+
+.reimbursement-band ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.reimbursement-band ul li {
+  margin-bottom: 12px;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .travel-section {
+    padding: 25px 20px 20px;
+    margin: 25px 10px;
+  }
+
+  .travel-title {
+    font-size: 2.2rem;
+  }
+
+  .travel-info p, .travel-info ol {
+    font-size: 1rem;
+  }
+
+  .reimbursement-band {
+    padding: 15px 20px;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <main class="container" role="main">
+
+    <header aria-label="Training header with logos and title">
+      <div class="header-logos" role="img" aria-label="Organizational logos">
+ 
+
+<header aria-label="Training header with logos and title">
+  <div class="header-logos" role="img" aria-label="Organizational logos">
+        <a href="https://zakmalta.org" target="_blank" rel="noopener noreferrer">
+
+             <a href="https://erasmus-plus.ec.europa.eu" target="_blank" rel="noopener noreferrer">
+      <img src="Cofunded Erasmus PNG.png" alt="Erasmus+ Cofunded logo" />
+
+    <a href="https://fondi.eu/eupa/" target="_blank" rel="noopener noreferrer">
+      <img src="EupaLogo.png" alt="EUPA logo" />
+
+    <a href="https://youth.gov.mt" target="_blank" rel="noopener noreferrer">
+      <img src="Agenzija.png.webp" alt="agenzija zghazagh logo" />
+
+          <a href="https://zakmalta.org" target="_blank" rel="noopener noreferrer">
+    <img src="ŻAKlog.png" alt="Partner 0 logo" />
+     </a>
+    </a>
+
+  </div>
+</header>
+
+      </div>
+
+      <h1>MAKING A DIFFERENCE IN THE WORLD</h1>
+         <p class="heading-text">9-13 SEPTEMBER</p>
+         
+
+
+      <p class="erasmus-text">Birkirkara, Malta</p>
+    </header>
+
+    <!-- Interactive cropping image -->
+    <div class="image-container" aria-label="Interactive training photo cropping">
+      <img id="crop-image" src="training.JPG" alt="Participants engaging in a youth leadership training activity" />
+    </div>
+    <figure>
+      <figcaption>Participants engaging in a youth leadership training activity.</figcaption>
+    </figure>
+
+  
+
+    <section class="features" aria-label="Training learning objectives and experience">
+
+      <article class="feature" aria-labelledby="learn-title">
+        <h2 id="learn-title">What you will learn:</h2>
+        <ul>
+          <li>The connection between faith, history, and youth leadership</li>
+          <li>How to share and appreciate diverse national faith stories</li>
+          <li>The role of lay people and youth work in the Church and society</li>
+          <li>Practical aspects of Erasmus+ youth exchanges and Youthpass certification</li>
+          <li>Skills for teamwork, communication, and project dissemination</li>
+        </ul>
+
+        <figure>
+          <img src="training1.JPG" alt="Youth leaders sharing experiences during training" />
+          <figcaption>Youth leaders sharing experiences and reflections during a session.</figcaption>
+        </figure>
+      </article>
+
+      <article class="feature" aria-labelledby="experience-title">
+        <h2 id="experience-title">What you will experience:</h2>
+        <ul>
+          <li>Team-building and cultural exchange with participants from six countries</li>
+          <li>Visits to important faith heritage sites like St Paul’s Grotto and Catacombs</li>
+          <li>Personal reflection time and group discussions on challenges and motivations</li>
+          <li>International evening with food, games, and dancing</li>
+          <li>A closing Mass and a farewell beach event at Golden Bay</li>
+        </ul>
+
+        <figure>
+          <img src="training2.JPG" alt="Group event during the training" />
+          <figcaption>Group event highlighting cultural exchange and team building.</figcaption>
+        </figure>
+      </article>
+
+    </section>
+
+    <section class="bottom-band" aria-live="polite">
+      The main objective of the training is to empower youth leaders by enhancing their understanding of faith, history, and youth work, while building intercultural connections and practical skills to make a positive impact within their communities and through international youth projects.
+    </section>
+    
+
+  </main>
+
+  <script>
+    const root = document.documentElement;
+    const inputs = ['crop-top', 'crop-right', 'crop-bottom', 'crop-left'];
+
+    inputs.forEach(id => {
+      const input = document.getElementById(id);
+      input.addEventListener('input', e => {
+        root.style.setProperty(`--${id}`, e.target.value + 'px');
+      });
+    });
+  </script>
+
+</figure>
+<section class="facilitator-section" aria-labelledby="facilitator-title">
+  <div class="facilitator-container">
+    <img src="ŻAKlog.png" alt="Facilitator portrait" class="facilitator-portrait" />
+    <div class="facilitator-bio">
+      <h2 id="facilitator-title">Meet the Host Organisation</h2>
+      <p>
+ŻAK Malta is a well-established organization with extensive experience in Catholic youth work. Known for hosting multiple national and international training programs, it empowers young people through faith-based initiatives that foster spiritual growth, leadership, and active participation in the Church and society.      </p>
+    </div>
+  </div>
+  <figure class="facilitator-activity">
+    <img src="faciltators.jpg" alt="Group team-building exercise outdoors" />
+    <figcaption>Facilitator leading a workshop during last year's training.</figcaption>
+  </figure>
+  <section class="partners-section" aria-label="Our partners">
+  <h2 class="section-title">Participating Organisations</h2>
+        <p>
+These are the partner organisations: Catholic Action groups from Malta, Italy, Romania and Spain who are full members of FIAC, together with ERKO and Diocese of Limerick. See what they have been up to on their socials      </p>
+    </div>
+  <div class="partners-logos">
+  
+        <a href="https://www.instagram.com/zak_malta/" target="_blank" rel="noopener noreferrer" aria-label="Partner 0 Instagram">
+      <img src="ŻAKlog.png" alt="Partner 0 logo" />
+    </a>
+    <a href="https://www.instagram.com/azionecattolica/" target="_blank" rel="noopener noreferrer" aria-label="Partner 1 Instagram">
+      <img src="aci.svg" alt="aci.svg" />
+    </a>
+    <a href="https://www.instagram.com/actiuneacatolica/" target="_blank" rel="noopener noreferrer" aria-label="Partner 2 Instagram">
+      <img src="acro.svg" alt="Partner 2 logo" />
+    </a>
+    <a href="https://www.instagram.com/acgjovenes/" target="_blank" rel="noopener noreferrer" aria-label="Partner 3 Instagram">
+      <img src="jovenes.svg" alt="Partner 3 logo" />
+    </a>
+        <a href="https://www.instagram.com/erko_hksd/" target="_blank" rel="noopener noreferrer" aria-label="Partner 4 Instagram">
+      <img src="ErkoLogo.png" alt="Partner 4 logo" />
+    </a>
+        <a href="https://www.instagram.com/limerick_diocese/" target="_blank" rel="noopener noreferrer" aria-label="Partner 5 Instagram">
+      <img src="Limerick.png" alt="Partner 5 logo" />
+    </a>
+    <!-- Add more partners here -->
+  </div>
+</section>
+
+ <section class="accommodation-section" aria-labelledby="accommodation-title">
+  <h2 id="accommodation-title" class="section-title">ACCOMMODATION</h2>
+
+
+<p class="accommodation-info">
+  The training will take place in Birkirkara, Malta. Accommodation is in bunk beds (6-7 people) at
+  <a href="https://zakmalta.org/zak-house/" target="_blank" rel="noopener noreferrer" class="hotel-link">ŻAK House</a>,
+  or shared rooms (2-4 people) at
+  <a href="https://www.rivotortomalta.com" target="_blank" rel="noopener noreferrer" class="hotel-link">Rivotorto</a>.
+  Sheets and towels are provided.
+</p>
+
+
+  <div class="accommodation-container">
+
+<div class="locations-container">
+  <div class="location-info">
+      <a href="https://zakmalta.org/zak-house/" target="_blank" rel="noopener noreferrer" class="hotel-link"><h3>ZAK House</h3></a>
+
+    
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3231.975446707789!2d14.459950912471033!3d35.89861701788511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x130e50031df8f7d7%3A0x5f6f26cc3740d0d7!2s%C5%BBAK%20House!5e0!3m2!1sen!2smt!4v1793955470883!5m2!1sen!2smt" 
+        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" title="ZAK House location" referrerpolicy="strict-origin-when-cross-origin">
+      </iframe>
+    </div>
+  </div>
+
+  <div class="location-info">
+          <a href="https://www.rivotortomalta.com" target="_blank" rel="noopener noreferrer" class="hotel-link">  <h3>Rivotorto</h3></a>
+
+  
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.6392813631376!2d14.43055351572009!3d35.9397855803187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x130e4a0ac8330ba3%3A0x9a0dcd6a0b4e5c96!2sRivotor%20Malta!5e0!3m2!1sen!2smt!4v1606729829987!5m2!1sen!2smt" 
+        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" title="Rivotorto Malta location" referrerpolicy="strict-origin-when-cross-origin">
+      </iframe>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+</section>
+<section class="travel-section" aria-labelledby="travel-title">
+
+  <div class="travel-header">
+    <h1 id="travel-title" class="travel-title">TRAVELLING   ✈️</h1>
+
+      </svg>
+    </div>
+  </div>
+
+  <div class="travel-info">
+    <p>Training will take place from <strong>September 9th</strong> to mid-day of <strong>September 12</strong>.</p>
+    <p>So you need to arrive in the first part of September 9 in the evening so we can gather and introduce ourselves (around 6pm for dinner) and depart on September 13 which is a travel day and you are free to roam around before you depart.</p>
+
+    <h2>Arriving at ŻAK House</h2>
+    <ol>
+      <li>Have bolt downloaded on your phone and book a cab from Airport to ŻAK House/Rivotorto, you will then be reimbursed;</li>
+      <li>If this is an issue contact us for more help</li>
+    </ol>
+        <h2>Reimbursement Instructions</h2>
+    <p>To receive travel-expense reimbursement (plane/bus/train), you must deliver:</p>
+    <ul>
+      <li>Invoice of your flight tickets and originals of bus/train tickets;</li>
+      <li>Boarding pass (for both ways).</li>
+    </ul>
+
+    <h2>Conditions:</h2>
+    <ul>
+      <li>You must stay for the whole period of the training;</li>
+      <li>You are responsible for filling the final report after the training;</li>
+      <li>Active participation in sharing results and outcomes.</li>
+      <li>Participants will ONLY be reimbursed after they fill a short Erasmus+Survey on the event</li>
+
+      <!-- Add further conditions if needed -->
+    </ul>
+  </div>
+
+
+  </div>
+
+</section>
+<section class="deadline-section" aria-labelledby="deadline-title">
+  <div class="deadline-content">
+    <div class="deadline-info">
+      <span class="deadline-label">Deadline application:</span>
+      <h2 id="deadline-title" class="deadline-date">The deadline for submitting application is <span class="highlight-date">August 1st 2027</span>.</h2>
+      <p>You must transfer <strong>50 Euros</strong> to finalise the application. The money will be returned after the training.<br/>If you cancel later than August 10th, the money won't be returned.</p>
+      <p><strong>Bank account (IBAN):</strong> MT42VALL22013000000040024040899</p>
+      <p><strong>Account holder:</strong> ŻGĦAŻAGĦ AZZJONI KATTOLIKA</p>
+    </div>
+    <a href="https://forms.gle/jPMpb2hu2QRRMqaS6" class="apply-button" role="button" aria-label="Apply to training" target="_blank" rel="noopener noreferrer">APPLY HERE</a>
+  </div>
+</section>
+
+
+<footer class="page-footer" role="contentinfo">
+  <div class="footer-left">
+    <img src="ŻAKlog.png" alt="VIAC logo" class="footer-logo" />
+    <div class="footer-text">
+      ŻAK<br/>
+      Żgħażagħ Azzjoni Kattolika
+    </div>
+  </div>
+
+  <div class="footer-right" aria-label="Contact information">
+    <h3>CONTACTS</h3>
+    <p>Andreas Muscat</p>
+    <p><a href="formation.coord@zakmalta.org">formation.coord@zakmalta.org</a></p>
+    <p>+356 77719240</p>
+  </div>
+
+  <div class="footer-center">
+    See you at the training!
+  </div>
+</footer>
+
+
+
+
+</section>
+
+</body>
+</html>
